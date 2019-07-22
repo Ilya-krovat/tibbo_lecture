@@ -4,6 +4,6 @@ jdk:
   - openjdk8
 
 env:
-  - $PROJECT_DIR=tibbo-first-project
+  - $PROJECT_DIR=tibbo-calculator
 
 script: cd $PROJECT_DIR && ./gradlew assemble && ./gradlew check

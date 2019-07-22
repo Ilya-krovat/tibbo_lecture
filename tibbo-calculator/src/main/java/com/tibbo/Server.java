@@ -1,21 +1,34 @@
 package com.tibbo;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 
 public class Server
 {
   private static final Server INSTANCE = new Server();
+  private ServerSocket serverSocket;
+  private int messageCounter = 0;
   
   public static void main(String[] args) throws Exception
   {
     INSTANCE.launch(args);
   }
   
-  private void launch(String[] args) throws Exception
+  public void launch(String[] args) throws Exception
   {
-    ServerSocket serverSocket = new ServerSocket();
-    serverSocket.bind(new InetSocketAddress(15555));
+    serverSocket = new ServerSocket();
+    serverSocket.bind(new InetSocketAddress(5555));
     serverSocket.setSoTimeout(5000);
+  }
+  
+  public void close() throws IOException
+  {
+    serverSocket.close();
+  }
+  
+  public int getMessageCounter()
+  {
+    return messageCounter;
   }
 }
