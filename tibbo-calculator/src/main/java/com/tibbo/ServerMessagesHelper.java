@@ -5,6 +5,7 @@ public class ServerMessagesHelper
   public static String FIRST_MESSAGE = "First message";
   public static String SECOND_MESSAGE = "secondMessage";
   public static String THIRD_MESSAGE = "Third Message";
+  public static String MESSAGE_ERROR = "error!!!";
   private static char FIRST_CHAR = '\u0001';
   private static char SECOND_CHAR = '\u0002';
   private static char THIRD_CHAR = '\u0003';
