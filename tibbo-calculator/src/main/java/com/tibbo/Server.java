@@ -21,7 +21,6 @@ public class Server
     INSTANCE.launch(args);
   }
 
-
   static void increase()
   {
     messageCounter++;
