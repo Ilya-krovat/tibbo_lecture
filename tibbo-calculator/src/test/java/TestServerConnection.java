@@ -15,6 +15,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testServerConnection() throws Exception
   {
+    server.drop();
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress("localhost", 5555));
     DataOutputStream stream = new DataOutputStream(socket.getOutputStream());
@@ -40,7 +41,7 @@ public class TestServerConnection extends TestCase
     assertTrue(socket2.isConnected());
     
     Thread.sleep(3000);
-    assertEquals(7, server.getMessageCounter());
+    assertEquals(3, server.getMessageCounter());
 
 
     socket.close();
@@ -51,6 +52,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testCalculator() throws Exception
   {
+    server.drop();
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress("localhost", 5555));
     DataOutputStream outStream= new DataOutputStream(socket.getOutputStream());
@@ -97,6 +99,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testMyTest1() throws Exception
   {
+    server.drop();
     String result;
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress("localhost", 5555));
@@ -124,7 +127,7 @@ public class TestServerConnection extends TestCase
     result = inputStream.readUTF();
     assertEquals("8.0", result);
 
-    assertEquals(10, server.getMessageCounter());
+    assertEquals(3, server.getMessageCounter());
 
     socket.close();
   }
@@ -138,6 +141,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testMyTest2() throws Exception
   {
+    server.drop();
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress("localhost",5555));
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
@@ -165,6 +169,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testMyTest3() throws Exception
   {
+    server.drop();
     String result;
     Socket Lupa = new Socket();
     Lupa.connect(new InetSocketAddress("localhost", 5555));
@@ -205,7 +210,7 @@ public class TestServerConnection extends TestCase
     result=inputStream.readUTF();
     assertEquals("0.0",result);
 
-    assertEquals(16,server.getMessageCounter());
+    assertEquals(4,server.getMessageCounter());
 
     Lupa.close();
     Pupa.close();

@@ -25,6 +25,11 @@ public class Server
   {
     messageCounter++;
   }
+
+  public  void drop()
+  {
+    messageCounter = 0;
+  }
   
   public void launch(String[] args) throws Exception
   {
