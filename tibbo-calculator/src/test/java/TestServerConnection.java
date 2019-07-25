@@ -212,6 +212,12 @@ public class TestServerConnection extends TestCase
 
     assertEquals(4,server.getMessageCounter());
 
+    outputStream.writeUTF("--help");
+    outputStream.flush();
+
+    result=inputStream.readUTF();
+    System.out.println(result);
+
     socket1.close();
     socket2.close();
   }
@@ -221,7 +227,7 @@ public class TestServerConnection extends TestCase
   protected void setUp() throws Exception
   {
     server = new Server();
-    server.launch(new int[]{5555,5556,5557,5558,5559});
+    server.launch(null);
   }
   
   @Override

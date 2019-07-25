@@ -39,13 +39,20 @@ public class SocketHz extends Thread {
                 }catch (EOFException e) {
                     continue;
                 }
-                String result = getResult(string);
-                if(result!=null)
-                    INSTANCE.increase();
-                System.out.println(string);
-                System.out.println(result);
-                outputStream.writeUTF(result);
-                outputStream.flush();
+                if(string.equals("--help")) {
+                    outputStream.writeUTF("Привет, я - калькулятор\nЯ умею:\n   -считать математические выражения\nP.s.\nДля извлечения корня вводить sqrt(выражение)\nДля возвеения A в степень B водить pow(A,B)");
+                    outputStream.flush();
+                }
+                else
+                {
+                    String result = getResult(string);
+                    if (result != null)
+                        INSTANCE.increase();
+                    System.out.println(string);
+                    System.out.println(result);
+                    outputStream.writeUTF(result);
+                    outputStream.flush();
+                }
             }
         }
         catch(IOException e)

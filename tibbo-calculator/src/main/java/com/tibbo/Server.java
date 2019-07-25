@@ -15,12 +15,17 @@ public class Server
   private static int messageCounter = 0;
   private List<Thread> pool = new ArrayList<>();
   private Thread thread;
-  private static int numb=-1;
+  private int[] ports={5555,5556,5557,5558,5559,5560,5561,5562};
+  private static int numb =-1;
 
-
-  public static void main(int[] args) throws Exception
+  public static void main(String[] args) throws Exception
   {
     INSTANCE.launch(args);
+  }
+
+  public int getPort()
+  {
+    return ports[numb];
   }
 
   static void increase()
@@ -33,11 +38,11 @@ public class Server
     messageCounter = 0;
   }
   
-  public void launch(int[]port) throws Exception
+  public void launch(String[] args) throws Exception
   {
-      numb++;
+    numb++;
     serverSocket = new ServerSocket();
-    serverSocket.bind(new InetSocketAddress(port[numb]));
+    serverSocket.bind(new InetSocketAddress(getPort()));
     thread = new Thread(){
       public void run()
       {
