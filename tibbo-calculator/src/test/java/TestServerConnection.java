@@ -17,20 +17,20 @@ public class TestServerConnection extends TestCase
   {
     server.drop();
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress("localhost", 5555));
+    socket.connect(new InetSocketAddress("localhost", 5556));
     DataOutputStream stream = new DataOutputStream(socket.getOutputStream());
     
     stream.writeUTF(ServerMessagesHelper.FIRST_MESSAGE);
     stream.flush();
     
     Socket socket1 = new Socket();
-    socket1.connect(new InetSocketAddress("localhost", 5555));
+    socket1.connect(new InetSocketAddress("localhost", 5556));
     stream = new DataOutputStream(socket1.getOutputStream());
     stream.writeUTF(ServerMessagesHelper.SECOND_MESSAGE);
     stream.flush();
     
     Socket socket2 = new Socket();
-    socket2.connect(new InetSocketAddress("localhost", 5555));
+    socket2.connect(new InetSocketAddress("localhost", 5556));
     
     stream = new DataOutputStream(socket2.getOutputStream());
     stream.writeUTF(ServerMessagesHelper.THIRD_MESSAGE);
@@ -102,7 +102,7 @@ public class TestServerConnection extends TestCase
     server.drop();
     String result;
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress("localhost", 5555));
+    socket.connect(new InetSocketAddress("localhost", 5557));
     DataOutputStream outStream= new DataOutputStream(socket.getOutputStream());
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
 
@@ -143,7 +143,7 @@ public class TestServerConnection extends TestCase
   {
     server.drop();
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress("localhost",5555));
+    socket.connect(new InetSocketAddress("localhost",5558));
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
     DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
@@ -172,7 +172,7 @@ public class TestServerConnection extends TestCase
     server.drop();
     String result;
     Socket socket1 = new Socket();
-    socket1.connect(new InetSocketAddress("localhost", 5555));
+    socket1.connect(new InetSocketAddress("localhost", 5559));
     DataOutputStream outputStream = new DataOutputStream(socket1.getOutputStream());
     DataInputStream inputStream = new DataInputStream(socket1.getInputStream());
 
@@ -191,7 +191,7 @@ public class TestServerConnection extends TestCase
     assertEquals(ServerMessagesHelper.MESSAGE_ERROR,result);
 
     Socket socket2 = new Socket();
-    socket2.connect(new InetSocketAddress("localhost",5555));
+    socket2.connect(new InetSocketAddress("localhost",5559));
 
     outputStream = new DataOutputStream(socket2.getOutputStream());
     inputStream = new DataInputStream(socket2.getInputStream());
