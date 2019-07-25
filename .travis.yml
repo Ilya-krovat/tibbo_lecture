@@ -15,4 +15,4 @@ jdk:
 env:
   - $PROJECT_DIR=tibbo-calculator
 
-script: cd $PROJECT_DIR && ./gradlew assemble && ./gradlew chec
+script: cd $PROJECT_DIR && ./gradlew assemble && ./gradlew check
