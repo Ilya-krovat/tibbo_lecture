@@ -9,6 +9,7 @@ public class ServerMessagesHelper
   private static char FIRST_CHAR = '\u0001';
   private static char SECOND_CHAR = '\u0002';
   private static char THIRD_CHAR = '\u0003';
+  public static  String NAME_OF_HOST = "localhost";
   
   public static byte[] prepareString(String value)
   {

@@ -15,22 +15,22 @@ public class TestServerConnection extends TestCase
   @Test
   public void testServerConnection() throws Exception
   {
-    server.drop();
+    server.dropMessageCounter();
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress("localhost", 5556));
+    socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     DataOutputStream stream = new DataOutputStream(socket.getOutputStream());
     
     stream.writeUTF(ServerMessagesHelper.FIRST_MESSAGE);
     stream.flush();
     
     Socket socket1 = new Socket();
-    socket1.connect(new InetSocketAddress("localhost", 5556));
+    socket1.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     stream = new DataOutputStream(socket1.getOutputStream());
     stream.writeUTF(ServerMessagesHelper.SECOND_MESSAGE);
     stream.flush();
     
     Socket socket2 = new Socket();
-    socket2.connect(new InetSocketAddress("localhost", 5556));
+    socket2.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     
     stream = new DataOutputStream(socket2.getOutputStream());
     stream.writeUTF(ServerMessagesHelper.THIRD_MESSAGE);
@@ -52,9 +52,9 @@ public class TestServerConnection extends TestCase
   @Test
   public void testCalculator() throws Exception
   {
-    server.drop();
+    server.dropMessageCounter();
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress("localhost", 5555));
+    socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     DataOutputStream outStream= new DataOutputStream(socket.getOutputStream());
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
     
@@ -97,12 +97,12 @@ public class TestServerConnection extends TestCase
   //
   
   @Test
-  public void testMyTest1() throws Exception
+  public void testSimpleExpression() throws Exception
   {
-    server.drop();
+    server.dropMessageCounter();
     String result;
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress("localhost", 5557));
+    socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     DataOutputStream outStream= new DataOutputStream(socket.getOutputStream());
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
 
@@ -139,11 +139,11 @@ public class TestServerConnection extends TestCase
   //окргулить до целый часть(sign)
 
   @Test
-  public void testMyTest2() throws Exception
+  public void testComplexExpression() throws Exception
   {
-    server.drop();
+    server.dropMessageCounter();
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress("localhost",5558));
+    socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST,5558));
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
     DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
@@ -167,12 +167,12 @@ public class TestServerConnection extends TestCase
   //вычислить в кажом по два выржания
 
   @Test
-  public void testMyTest3() throws Exception
+  public void testCoupleUsers() throws Exception
   {
-    server.drop();
+    server.dropMessageCounter();
     String result;
     Socket socket1 = new Socket();
-    socket1.connect(new InetSocketAddress("localhost", 5559));
+    socket1.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     DataOutputStream outputStream = new DataOutputStream(socket1.getOutputStream());
     DataInputStream inputStream = new DataInputStream(socket1.getInputStream());
 
@@ -191,7 +191,7 @@ public class TestServerConnection extends TestCase
     assertEquals(ServerMessagesHelper.MESSAGE_ERROR,result);
 
     Socket socket2 = new Socket();
-    socket2.connect(new InetSocketAddress("localhost",5559));
+    socket2.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST,server.getPort()));
 
     outputStream = new DataOutputStream(socket2.getOutputStream());
     inputStream = new DataInputStream(socket2.getInputStream());
@@ -229,7 +229,7 @@ public class TestServerConnection extends TestCase
     server = new Server();
     server.launch(null);
   }
-  
+
   @Override
   protected void tearDown() throws Exception
   {

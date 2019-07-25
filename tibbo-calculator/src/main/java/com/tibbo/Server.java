@@ -33,11 +33,11 @@ public class Server
     messageCounter++;
   }
 
-  public  void drop()
+  public  void dropMessageCounter()
   {
     messageCounter = 0;
   }
-  
+
   public void launch(String[] args) throws Exception
   {
     numb++;

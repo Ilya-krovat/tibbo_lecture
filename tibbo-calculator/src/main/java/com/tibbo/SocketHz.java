@@ -10,6 +10,8 @@ import java.net.Socket;
 public class SocketHz extends Thread {
     private Socket socket;
     private Server INSTANCE;
+    private Evaluator evaluator = new Evaluator();
+
     public SocketHz(Socket socket, Server INSTANCE)
     {
         this.INSTANCE = INSTANCE;
@@ -17,10 +19,10 @@ public class SocketHz extends Thread {
     }// у нас создается только один поток
 
     private String getResult(String string) {
-        Evaluator evaluator = new Evaluator();
         try {
             return evaluator.evaluate(string);
         } catch (EvaluationException ee) {
+            System.out.println("Проблемы с выражением "+string);
             return ServerMessagesHelper.MESSAGE_ERROR;
         }
     }
