@@ -28,7 +28,7 @@ public class Server
     return ports[numb];
   }
 
-  static void increase()
+  void increase()
   {
     messageCounter++;
   }

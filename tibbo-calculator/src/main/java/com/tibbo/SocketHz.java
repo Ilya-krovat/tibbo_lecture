@@ -2,7 +2,6 @@ package com.tibbo;
 
 import net.sourceforge.jeval.EvaluationException;
 import net.sourceforge.jeval.Evaluator;
-import net.sourceforge.jeval.function.math.Pow;
 
 import java.io.*;
 import java.net.Socket;
@@ -41,8 +40,8 @@ public class SocketHz extends Thread {
                 }catch (EOFException e) {
                     continue;
                 }
-                if(string.equals("--help")) {
-                    outputStream.writeUTF("Привет, я - калькулятор\nЯ умею:\n   -считать математические выражения\nP.s.\nДля извлечения корня вводить sqrt(выражение)\nДля возвеения A в степень B водить pow(A,B)");
+                if(string.equals(ServerMessagesHelper.COMMAND_HELP)) {
+                    outputStream.writeUTF(ServerMessagesHelper.HELP_MESS);
                     outputStream.flush();
                 }
                 else

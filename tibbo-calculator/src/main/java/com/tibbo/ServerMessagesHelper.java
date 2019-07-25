@@ -10,6 +10,8 @@ public class ServerMessagesHelper
   private static char SECOND_CHAR = '\u0002';
   private static char THIRD_CHAR = '\u0003';
   public static  String NAME_OF_HOST = "localhost";
+  public static String COMMAND_HELP = "--help";
+  public static String HELP_MESS = "Привет, я - калькулятор\nЯ умею:\n   -считать математические выражения\nP.s.\nДля извлечения корня вводить sqrt(выражение)\nДля возвеения A в степень B водить pow(A,B)";
   
   public static byte[] prepareString(String value)
   {

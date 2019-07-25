@@ -169,7 +169,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testCoupleUsers() throws Exception
   {
-    server.dropMessageCounter();
+    //server.dropMessageCounter();
     String result;
     Socket socket1 = new Socket();
     socket1.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
