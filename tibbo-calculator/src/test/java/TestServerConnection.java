@@ -221,7 +221,7 @@ public class TestServerConnection extends TestCase
   protected void setUp() throws Exception
   {
     server = new Server();
-    server.launch(null);
+    server.launch(new int[]{5555,5556,5557,5558,5559});
   }
   
   @Override
