@@ -171,12 +171,12 @@ public class TestServerConnection extends TestCase
   {
     server.drop();
     String result;
-    Socket Lupa = new Socket();
-    Lupa.connect(new InetSocketAddress("localhost", 5555));
-    DataOutputStream outputStream = new DataOutputStream(Lupa.getOutputStream());
-    DataInputStream inputStream = new DataInputStream(Lupa.getInputStream());
+    Socket socket1 = new Socket();
+    socket1.connect(new InetSocketAddress("localhost", 5555));
+    DataOutputStream outputStream = new DataOutputStream(socket1.getOutputStream());
+    DataInputStream inputStream = new DataInputStream(socket1.getInputStream());
 
-    assertTrue(Lupa.isConnected());
+    assertTrue(socket1.isConnected());
 
     outputStream.writeUTF("250+1400-600");
     outputStream.flush();
@@ -190,13 +190,13 @@ public class TestServerConnection extends TestCase
     result=inputStream.readUTF();
     assertEquals(ServerMessagesHelper.MESSAGE_ERROR,result);
 
-    Socket Pupa = new Socket();
-    Pupa.connect(new InetSocketAddress("localhost",5555));
+    Socket socket2 = new Socket();
+    socket2.connect(new InetSocketAddress("localhost",5555));
 
-    outputStream = new DataOutputStream(Pupa.getOutputStream());
-    inputStream = new DataInputStream(Pupa.getInputStream());
+    outputStream = new DataOutputStream(socket2.getOutputStream());
+    inputStream = new DataInputStream(socket2.getInputStream());
 
-    assertTrue(Pupa.isConnected());
+    assertTrue(socket2.isConnected());
 
     outputStream.writeUTF("2+2+2*2");
     outputStream.flush();
@@ -212,8 +212,8 @@ public class TestServerConnection extends TestCase
 
     assertEquals(4,server.getMessageCounter());
 
-    Lupa.close();
-    Pupa.close();
+    socket1.close();
+    socket2.close();
   }
 
   

@@ -1,9 +1,18 @@
 language: java
 
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
 jdk:
-  - openjdk8
+  - oraclejdk8
+
 
 env:
   - $PROJECT_DIR=tibbo-calculator
 
-script: cd $PROJECT_DIR && ./gradlew assemble && ./gradlew check
+script: cd $PROJECT_DIR && ./gradlew assemble && ./gradlew chec
