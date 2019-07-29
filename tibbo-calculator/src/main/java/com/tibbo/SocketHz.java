@@ -14,8 +14,8 @@ public class SocketHz extends Thread {
     public SocketHz(Socket socket, Server INSTANCE)
     {
         this.INSTANCE = INSTANCE;
-        this.socket = socket;//примитивные типы не копируются, толку передвать его сюда нету
-    }// у нас создается только один поток
+        this.socket = socket;
+    }
 
     private String getResult(String string) {
         try {
@@ -56,8 +56,7 @@ public class SocketHz extends Thread {
                 }
             }
         }
-        catch(IOException e)
-        {
+        catch(IOException e) {
             e.printStackTrace();
         }
     }

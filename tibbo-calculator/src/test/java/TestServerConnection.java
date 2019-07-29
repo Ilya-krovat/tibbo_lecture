@@ -15,7 +15,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testServerConnection() throws Exception
   {
-    server.dropMessageCounter();
+    //server.dropMessageCounter();
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     DataOutputStream stream = new DataOutputStream(socket.getOutputStream());
@@ -52,7 +52,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testCalculator() throws Exception
   {
-    server.dropMessageCounter();
+    //server.dropMessageCounter();
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
     DataOutputStream outStream= new DataOutputStream(socket.getOutputStream());
@@ -99,7 +99,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testSimpleExpression() throws Exception
   {
-    server.dropMessageCounter();
+    //server.dropMessageCounter();
     String result;
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
@@ -141,7 +141,7 @@ public class TestServerConnection extends TestCase
   @Test
   public void testComplexExpression() throws Exception
   {
-    server.dropMessageCounter();
+    //server.dropMessageCounter();
     Socket socket = new Socket();
     socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST,5558));
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
@@ -169,7 +169,6 @@ public class TestServerConnection extends TestCase
   @Test
   public void testCoupleUsers() throws Exception
   {
-    //server.dropMessageCounter();
     String result;
     Socket socket1 = new Socket();
     socket1.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST, server.getPort()));
