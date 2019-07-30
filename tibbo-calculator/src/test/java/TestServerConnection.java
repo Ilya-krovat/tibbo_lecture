@@ -11,6 +11,8 @@ import java.net.Socket;
 
 public class TestServerConnection extends TestCase
 {
+  private String[] ports = {"5556","5557","5558","5559", "5560",  "5561"};
+  private int increment=1;
   private Server server;
   @Test
   public void testServerConnection() throws Exception
@@ -208,7 +210,8 @@ public class TestServerConnection extends TestCase
   protected void setUp() throws Exception
   {
     server = new Server();
-    server.launch(null);
+    server.launch(ports,increment);
+    increment++;
   }
 
   @Override

@@ -14,6 +14,8 @@ import java.net.Socket;
 
 public class TelegramBot extends TelegramLongPollingBot
 {
+    private InetSocketAddress inetSocketAddress;
+
     private Socket socket;
 
     private DataOutputStream outStream;
@@ -55,12 +57,11 @@ public class TelegramBot extends TelegramLongPollingBot
             try {
                 execute(sendMessage);
             } catch (TelegramApiException e) {
-                System.out.println(e);
+                System.out.println("TelegramApiException");
             }
         }catch (IOException a){
             try {
-                outStream = new DataOutputStream(socket.getOutputStream());
-                inputStream = new DataInputStream(socket.getInputStream());
+                connect(inetSocketAddress);
             }catch (IOException e)
             {
                 System.out.println("Reconnection Error");
@@ -69,6 +70,7 @@ public class TelegramBot extends TelegramLongPollingBot
     }
 
     public void connect(InetSocketAddress inetSocketAddress) throws IOException {
+        this.inetSocketAddress=inetSocketAddress;
         socket.connect(inetSocketAddress);
         try {
             outStream = new DataOutputStream(socket.getOutputStream());

@@ -18,7 +18,7 @@ public class Server
 
   public static void main(String[] args) throws Exception
   {
-    new Server().launch(args);
+    new Server().launch(args,0);
   }
 
   public int getPort()
@@ -31,10 +31,10 @@ public class Server
     messageCounter++;
   }
 
-  public void launch(String[] args) throws Exception
+  public void launch(String[] args,int i) throws Exception
   {
     try {
-      port = Integer.parseInt(args[0]);
+      port = Integer.parseInt(args[i]);
     }catch (NullPointerException e) {
       System.out.println("port is default (NullPointerException)");
     }catch (ArrayIndexOutOfBoundsException e) {
