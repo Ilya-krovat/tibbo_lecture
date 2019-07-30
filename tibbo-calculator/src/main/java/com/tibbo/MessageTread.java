@@ -6,12 +6,12 @@ import net.sourceforge.jeval.Evaluator;
 import java.io.*;
 import java.net.Socket;
 
-public class SocketHz extends Thread {
+public class MessageTread extends Thread {
     private Socket socket;
     private Server INSTANCE;
     private Evaluator evaluator = new Evaluator();
 
-    public SocketHz(Socket socket, Server INSTANCE)
+    public MessageTread(Socket socket, Server INSTANCE)
     {
         this.INSTANCE = INSTANCE;
         this.socket = socket;

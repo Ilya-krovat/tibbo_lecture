@@ -1,6 +1,5 @@
 package com.tibbo;
 
-import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -13,20 +12,16 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
-public class Bot extends TelegramLongPollingBot
+public class TelegramBot extends TelegramLongPollingBot
 {
     private Socket socket;
 
-    public Bot()
-    {
-        super(new DefaultBotOptions()
-        {
-            @Override
-            public String getBaseUrl() {
-                return ServerMessagesHelper.BASE_URL;
-            }
-        });
+    private DataOutputStream outStream;
+    private DataInputStream inputStream;
 
+    public TelegramBot()
+    {
+        super(new MyDefaultBotOptions());
         socket = new Socket();
     }
 
@@ -51,9 +46,6 @@ public class Bot extends TelegramLongPollingBot
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(chatId);
         try {
-            DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
-            DataInputStream inputStream = new DataInputStream(socket.getInputStream());
-
             outStream.writeUTF(s);
             outStream.flush();
 
@@ -65,12 +57,24 @@ public class Bot extends TelegramLongPollingBot
             } catch (TelegramApiException e) {
                 System.out.println(e);
             }
-        }catch (IOException e) {
-            System.out.println(e);
+        }catch (IOException a){
+            try {
+                outStream = new DataOutputStream(socket.getOutputStream());
+                inputStream = new DataInputStream(socket.getInputStream());
+            }catch (IOException e)
+            {
+                System.out.println("Reconnection Error");
+            }
         }
     }
 
     public void connect(InetSocketAddress inetSocketAddress) throws IOException {
         socket.connect(inetSocketAddress);
+        try {
+            outStream = new DataOutputStream(socket.getOutputStream());
+            inputStream = new DataInputStream(socket.getInputStream());
+        }catch (IOException e) {
+            System.out.println("Connection Error");
+        }
     }
 }

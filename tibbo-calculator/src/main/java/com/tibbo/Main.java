@@ -1,7 +1,5 @@
 package com.tibbo;
 
-import com.tibbo.Server;
-import com.tibbo.ServerMessagesHelper;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
@@ -12,17 +10,21 @@ import java.net.InetSocketAddress;
 public class Main
 {
     public static void main(String[] args) {
-
-        for (String str : args)
+        int port = 5555;
+        try {
+            port = Integer.parseInt(args[0]);
+        }catch (NullPointerException e) {
+            System.out.println("port is default (NullPointerException)");
+        }
+        catch(ArrayIndexOutOfBoundsException e)
         {
-            System.out.println(str);
+            System.out.println("port is default (ArrayIndexOutOfBoundsException)");
         }
 
-
         try {
-            Bot bot = new Bot();
+            TelegramBot bot = new TelegramBot();
             try {
-                bot.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST,5555));
+                bot.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST,port));
 
                 ApiContextInitializer.init();
                 TelegramBotsApi telegramBotsApi = new TelegramBotsApi();

@@ -37,7 +37,10 @@ public class Server
       port = Integer.parseInt(args[0]);
     }catch (NullPointerException e) {
       System.out.println("port is default");
+    }catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("port is default1");
     }
+
     serverSocket = new ServerSocket();
     serverSocket.bind(new InetSocketAddress(getPort()));
     mainThread = new Thread(){
@@ -49,7 +52,7 @@ public class Server
             Socket socket;
             try { socket = serverSocket.accept(); }
             catch (SocketException e) { break; }
-            SocketHz newSocket = new SocketHz(socket,Server.this);
+            MessageTread newSocket = new MessageTread(socket,Server.this);
             newSocket.start();
             threadPool.add(newSocket);
           }

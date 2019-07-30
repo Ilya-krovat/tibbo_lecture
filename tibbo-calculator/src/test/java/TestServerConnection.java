@@ -89,13 +89,6 @@ public class TestServerConnection extends TestCase
     socket.close();
   }
   
-  //тест 1
-  //создать еще один тест, в котором будем вычислять
-  //корень квадртный из 144
-  //корень квадртный из 144 умножить на 200
-  // корень квадрный из 4096 разделить на 8
-  //
-  
   @Test
   public void testSimpleExpression() throws Exception
   {
@@ -131,19 +124,13 @@ public class TestServerConnection extends TestCase
 
     socket.close();
   }
-  //тест 2
-  //посчитать корень квадртный из 9000(если не найдете корень, умножить PI на 200)
-  //окргулить до 3 знака
-  //результат умножить на 55.386
-  //разделть на число 'e'
-  //окргулить до целый часть(sign)
 
   @Test
   public void testComplexExpression() throws Exception
   {
     //server.dropMessageCounter();
     Socket socket = new Socket();
-    socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST,5558));
+    socket.connect(new InetSocketAddress(ServerMessagesHelper.NAME_OF_HOST,server.getPort()));
     DataInputStream inputStream = new DataInputStream(socket.getInputStream());
     DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
@@ -161,10 +148,6 @@ public class TestServerConnection extends TestCase
 
     socket.close();
   }
-
-  //тест 3
-  //нужно создать несколько сокетов для клиента
-  //вычислить в кажом по два выржания
 
   @Test
   public void testCoupleUsers() throws Exception
@@ -220,7 +203,6 @@ public class TestServerConnection extends TestCase
     socket1.close();
     socket2.close();
   }
-
   
   @Override
   protected void setUp() throws Exception
