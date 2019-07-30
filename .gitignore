@@ -6,3 +6,4 @@ build
 classes
 *.iml
 tibbo-first-project/Test.txt
+tibbo-calculator/lib/*
