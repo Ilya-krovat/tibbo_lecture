@@ -12,23 +12,27 @@ public class ServerMessagesHelper
   public static  String NAME_OF_HOST = "localhost";
   public static String COMMAND_HELP = "-help";
   public static String HELP_MESS = "Привет, я - калькулятор\nЯ умею:\n   -считать математические выражения\nP.s.\nДля извлечения корня вводить sqrt(выражение)\nДля возвеения A в степень B водить pow(A,B)";
+  public static String EXPRESSION_READ_ERROR_MESSAGE = "Проблемы с выражением ";
 
   public static String BOT_TOKEN = "883046614:AAETb4M72f54Slb2LZUtUiXksnQ2yEXEEvg";
   public static String BOT_USERNAME = "@Cheeseburger_bot";
   public static String BASE_URL = "http://104.248.243.143:18012/";
+  public static String SOCKET_ERROR_MESSAGE = "Проблемы с подключением бота к калькулятору, попробуйте позже";
+  public static String CONNECTION_ERROR_MESSAGE = "Connection Error";
+
 
   private static String EX_MESSAGE = "port is default ";
 
-  public static Integer parse(String[] s)
+  public static Integer parse(String[] arguments)
   {
     try {
-      return Integer.parseInt(s[0]);
+      return Integer.parseInt(arguments[0]);
     }catch (NullPointerException e) {
-      System.out.println(EX_MESSAGE + "(NullPointerException)");
+      System.out.println(EX_MESSAGE + e);
     } catch(ArrayIndexOutOfBoundsException e) {
-      System.out.println(EX_MESSAGE + "(ArrayIndexOutOfBoundsException)");
+      System.out.println(EX_MESSAGE + e);
     }catch (NumberFormatException e) {
-      System.out.println(EX_MESSAGE + "(NumberFormatException)");
+      System.out.println(EX_MESSAGE + e);
     }
     return 5555;
   }

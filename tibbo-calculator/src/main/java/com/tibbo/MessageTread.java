@@ -21,7 +21,7 @@ public class MessageTread extends Thread {
         try {
             return evaluator.evaluate(string);
         } catch (EvaluationException ee) {
-            System.out.println("Проблемы с выражением "+string);
+            System.out.println(ServerMessagesHelper.EXPRESSION_READ_ERROR_MESSAGE + string);
             return ServerMessagesHelper.MESSAGE_ERROR;
         }
     }

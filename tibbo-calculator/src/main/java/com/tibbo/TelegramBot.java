@@ -56,14 +56,14 @@ public class TelegramBot extends TelegramLongPollingBot
             outStream.flush();
             result = inputStream.readUTF();
         }catch (IOException a){
-            result = "Проблемы с подключением бота к калькулятору, попробуйте позже";
+            result = ServerMessagesHelper.SOCKET_ERROR_MESSAGE;
         }
 
         sendMessage.setText(result);
         try {
             execute(sendMessage);
         } catch (TelegramApiException e) {
-            System.out.println("TelegramApiException");
+            System.out.println(e);
         }
     }
 
@@ -74,7 +74,7 @@ public class TelegramBot extends TelegramLongPollingBot
             outStream = new DataOutputStream(socket.getOutputStream());
             inputStream = new DataInputStream(socket.getInputStream());
         }catch (IOException e) {
-            System.out.println("Connection Error");
+            System.out.println(ServerMessagesHelper.CONNECTION_ERROR_MESSAGE);
         }
     }
 }

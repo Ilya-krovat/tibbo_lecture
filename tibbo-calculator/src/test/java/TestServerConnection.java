@@ -195,7 +195,7 @@ public class TestServerConnection extends TestCase
 
     assertEquals(4,server.getMessageCounter());
 
-    outputStream.writeUTF("--help");
+    outputStream.writeUTF(ServerMessagesHelper.COMMAND_HELP);
     outputStream.flush();
 
     result=inputStream.readUTF();
