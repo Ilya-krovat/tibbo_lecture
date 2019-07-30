@@ -36,9 +36,11 @@ public class Server
     try {
       port = Integer.parseInt(args[0]);
     }catch (NullPointerException e) {
-      System.out.println("port is default");
+      System.out.println("port is default (NullPointerException)");
     }catch (ArrayIndexOutOfBoundsException e) {
-      System.out.println("port is default1");
+      System.out.println("port is default1 (ArrayIndexOutOfBoundsException)");
+    }catch (NumberFormatException e) {
+      System.out.println("port is default (NumberFormatException)");
     }
 
     serverSocket = new ServerSocket();

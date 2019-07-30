@@ -15,10 +15,10 @@ public class Main
             port = Integer.parseInt(args[0]);
         }catch (NullPointerException e) {
             System.out.println("port is default (NullPointerException)");
-        }
-        catch(ArrayIndexOutOfBoundsException e)
-        {
+        } catch(ArrayIndexOutOfBoundsException e) {
             System.out.println("port is default (ArrayIndexOutOfBoundsException)");
+        }catch (NumberFormatException e) {
+            System.out.println("port is default (NumberFormatException)");
         }
 
         try {
