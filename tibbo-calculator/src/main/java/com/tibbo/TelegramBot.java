@@ -47,25 +47,23 @@ public class TelegramBot extends TelegramLongPollingBot
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(chatId);
+        String result;
         try {
+            if(!socket.isConnected())
+                connect(inetSocketAddress);
+
             outStream.writeUTF(s);
             outStream.flush();
-
-            String result = inputStream.readUTF();
-
-            sendMessage.setText(result);
-            try {
-                execute(sendMessage);
-            } catch (TelegramApiException e) {
-                System.out.println("TelegramApiException");
-            }
+            result = inputStream.readUTF();
         }catch (IOException a){
-            try {
-                connect(inetSocketAddress);
-            }catch (IOException e)
-            {
-                System.out.println("Reconnection Error");
-            }
+            result = "Проблемы с подключением бота к калькулятору, попробуйте позже";
+        }
+
+        sendMessage.setText(result);
+        try {
+            execute(sendMessage);
+        } catch (TelegramApiException e) {
+            System.out.println("TelegramApiException");
         }
     }
 

@@ -17,6 +17,22 @@ public class ServerMessagesHelper
   public static String BOT_USERNAME = "@Cheeseburger_bot";
   public static String BASE_URL = "http://104.248.243.143:18012/";
 
+  private static String EX_MESSAGE = "port is default ";
+
+  public static Integer parse(String[] s)
+  {
+    try {
+      return Integer.parseInt(s[0]);
+    }catch (NullPointerException e) {
+      System.out.println(EX_MESSAGE + "(NullPointerException)");
+    } catch(ArrayIndexOutOfBoundsException e) {
+      System.out.println(EX_MESSAGE + "(ArrayIndexOutOfBoundsException)");
+    }catch (NumberFormatException e) {
+      System.out.println(EX_MESSAGE + "(NumberFormatException)");
+    }
+    return 5555;
+  }
+
   public static byte[] prepareString(String value)
   {
     //FIRST_CHAR - первый симлов, нового сообщения;

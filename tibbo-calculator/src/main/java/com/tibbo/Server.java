@@ -18,16 +18,7 @@ public class Server
 
   public static void main(String[] args) throws Exception
   {
-    try {
-      port = Integer.parseInt(args[0]);
-    }catch (NullPointerException e) {
-      System.out.println("port is default (NullPointerException)");
-    }catch (ArrayIndexOutOfBoundsException e) {
-      System.out.println("port is default1 (ArrayIndexOutOfBoundsException)");
-    }catch (NumberFormatException e) {
-      System.out.println("port is default (NumberFormatException)");
-    }
-    new Server().launch(port);
+      new Server().launch(ServerMessagesHelper.parse(args));
   }
 
   public int getPort()
@@ -40,9 +31,9 @@ public class Server
     messageCounter++;
   }
 
-  public void launch(Integer port1) throws Exception
+  public void launch(Integer port) throws Exception
   {
-    port = port1;
+    this.port = port;
     serverSocket = new ServerSocket();
     serverSocket.bind(new InetSocketAddress(getPort()));
     mainThread = new Thread(){
