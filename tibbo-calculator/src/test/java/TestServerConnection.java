@@ -209,7 +209,7 @@ public class TestServerConnection extends TestCase
   protected void setUp() throws Exception
   {
     server = new Server();
-    server.launch(port.toString());
+    server.launch(port);
     port++;
   }
 

@@ -14,11 +14,20 @@ public class Server
   private int messageCounter = 0;
   private List<Thread> threadPool = new ArrayList<>();
   private Thread mainThread;
-  private int port = 5555;
+  private static int port = 5555;
 
   public static void main(String[] args) throws Exception
   {
-    new Server().launch(null);
+    try {
+      port = Integer.parseInt(args[0]);
+    }catch (NullPointerException e) {
+      System.out.println("port is default (NullPointerException)");
+    }catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("port is default1 (ArrayIndexOutOfBoundsException)");
+    }catch (NumberFormatException e) {
+      System.out.println("port is default (NumberFormatException)");
+    }
+    new Server().launch(port);
   }
 
   public int getPort()
@@ -31,18 +40,9 @@ public class Server
     messageCounter++;
   }
 
-  public void launch(String port) throws Exception
+  public void launch(Integer port1) throws Exception
   {
-    try {
-      this.port = Integer.parseInt(port);
-    }catch (NullPointerException e) {
-      System.out.println("port is default (NullPointerException)");
-    }catch (ArrayIndexOutOfBoundsException e) {
-      System.out.println("port is default1 (ArrayIndexOutOfBoundsException)");
-    }catch (NumberFormatException e) {
-      System.out.println("port is default (NumberFormatException)");
-    }
-
+    port = port1;
     serverSocket = new ServerSocket();
     serverSocket.bind(new InetSocketAddress(getPort()));
     mainThread = new Thread(){
