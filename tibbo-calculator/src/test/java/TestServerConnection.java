@@ -11,7 +11,7 @@ import java.net.Socket;
 
 public class TestServerConnection extends TestCase
 {
-  private Integer port = 5556;
+  private static Integer port = 5556;
   private Server server;
   @Test
   public void testServerConnection() throws Exception
