@@ -1,5 +1,7 @@
-package com.tibbo;
+package com.tibbo.telegram;
 
+import com.tibbo.telegram.MyDefaultBotOptions;
+import com.tibbo.telegram.ServerMessagesHelper;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;

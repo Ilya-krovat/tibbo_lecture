@@ -1,4 +1,4 @@
-package com.tibbo;
+package com.tibbo.telegram;
 
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 

@@ -1,4 +1,4 @@
-package com.tibbo;
+package com.tibbo.telegram;
 
 public class ServerMessagesHelper
 {

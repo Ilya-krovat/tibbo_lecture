@@ -1,4 +1,4 @@
-package com.tibbo;
+package com.tibbo.telegram;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

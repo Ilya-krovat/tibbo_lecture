@@ -1,4 +1,4 @@
-package com.tibbo;
+package com.tibbo.telegram;
 
 import net.sourceforge.jeval.EvaluationException;
 import net.sourceforge.jeval.Evaluator;

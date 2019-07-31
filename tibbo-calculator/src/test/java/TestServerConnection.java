@@ -1,6 +1,6 @@
 
-import com.tibbo.Server;
-import com.tibbo.ServerMessagesHelper;
+import com.tibbo.telegram.Server;
+import com.tibbo.telegram.ServerMessagesHelper;
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -212,6 +212,7 @@ public class TestServerConnection extends TestCase
     server.launch(port);
     port++;
   }
+
 
   @Override
   protected void tearDown() throws Exception
