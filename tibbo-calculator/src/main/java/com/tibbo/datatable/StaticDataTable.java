@@ -12,8 +12,6 @@ public class StaticDataTable
     FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_INTEGER_TEST, FieldFormat.INTEGER_FIELD, "Integer поле", 0, true);
     tf.addField(ff);
 
-
-
     ff = FieldFormat.create(StaticDataTableHelper.FIELD_BOOLEAN_FIELD, FieldFormat.BOOLEAN_FIELD, "Bool поле", true, true);
     tf.addField(ff);
 
@@ -68,9 +66,6 @@ public class StaticDataTable
     rec.setValue(StaticDataTableHelper.FIELD_FLOAT_FIELD, 634);
     rec = table.addRecord();
     rec.setValue(StaticDataTableHelper.FIELD_LONG_FIELD, 36);
-    //проверка вложенных таблиц
-    // внутри должны быть вложенные таблицы из симпл тейблов
-    // не роляют значения
     return table;
   }
   
@@ -98,9 +93,6 @@ public class StaticDataTable
         rec.setValue(StaticDataTableHelper.FIELD_STRING_TEST, "10");
       }
     }
-
-
-    // большая таблица и оперируем данными
     return table;
   }
 }

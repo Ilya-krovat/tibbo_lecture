@@ -16,8 +16,8 @@ dependencies {
 
     compile group: 'org.telegram', name: 'telegrambots', version: '4.3.1'
 
-    compile files ('C:/Users/ilya/Desktop/aggregate_sdk_5.70.11/aggregate-api.jar')
-    compile files ('C:/Users/ilya/Desktop/aggregate_sdk_5.70.11/aggregate-api-libs.jar')
+    compile files ('libs/aggregate-api.jar')
+    compile files ('libs/aggregate-api-libs.jar')
     
     compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.3.Final'
     compile group: 'postgresql', name: 'postgresql', version: '9.1-901.jdbc4'
