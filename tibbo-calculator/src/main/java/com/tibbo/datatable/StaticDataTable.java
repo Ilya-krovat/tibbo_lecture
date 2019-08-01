@@ -9,51 +9,51 @@ public class StaticDataTable
   public static DataTable getSimpleTable()
   {
     TableFormat tf = new TableFormat(1,1);
-    FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_INTEGER_TEST, FieldFormat.INTEGER_FIELD, "Integer поле", 0, true);
+    FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_INTEGER_TEST, FieldFormat.INTEGER_FIELD, StaticDataTableHelper.DESTRIPTION_INTEGER_FIELD, 0, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_BOOLEAN_FIELD, FieldFormat.BOOLEAN_FIELD, "Bool поле", true, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_BOOLEAN_FIELD, FieldFormat.BOOLEAN_FIELD, StaticDataTableHelper.DESTRIPTION_BOOLEAN_FIELD, true, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_LONG_FIELD, FieldFormat.LONG_FIELD, "Long поле", 0, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_LONG_FIELD, FieldFormat.LONG_FIELD, StaticDataTableHelper.DESTRIPTION_LONG_FIELD, 0, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_FLOAT_FIELD, FieldFormat.FLOAT_FIELD, "Float поле", 0, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_FLOAT_FIELD, FieldFormat.FLOAT_FIELD, StaticDataTableHelper.DESTRIPTION_FLOAT_FIELD, 0, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DOUBLE_FIELD, FieldFormat.DOUBLE_FIELD, "Double поле", 0, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DOUBLE_FIELD, FieldFormat.DOUBLE_FIELD, StaticDataTableHelper.DESTRIPTION_DOUBLE_FIELD, 0, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_STRING_TEST, FieldFormat.STRING_FIELD, "String поле", "String", true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_STRING_TEST, FieldFormat.STRING_FIELD, StaticDataTableHelper.DESTRIPTION_STRING_FIELD, "String", true);
     ff.setHidden(true);
     ff.setReadonly(true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DATE_FIELD, FieldFormat.DATE_FIELD, "Date поле", new Date(4),true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DATE_FIELD, FieldFormat.DATE_FIELD, StaticDataTableHelper.DESTRIPTION_DATE_FIELD, new Date(4),true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DATATABLE_FIELD, FieldFormat.DATATABLE_FIELD, "DataTble поле");
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DATATABLE_FIELD, FieldFormat.DATATABLE_FIELD, StaticDataTableHelper.DESTRIPTION_DATATABLE_FIELD);
     tf.addField(ff);
-   //по 1 строке всех форматов тут важна проверка на форматы
+   //по 1 строке всех форматов тут важна проверка на форматы шз
     return new SimpleDataTable(tf);
   }
 
   public static DataTable getInnerTable()
   {
     TableFormat tf = new TableFormat(5,5);
-    FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_DATATABLE_FIELD, FieldFormat.DATATABLE_FIELD, "DataTble поле",getSimpleTable(), true);
+    FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_DATATABLE_FIELD, FieldFormat.DATATABLE_FIELD, StaticDataTableHelper.DESTRIPTION_DATATABLE_FIELD,getSimpleTable(), true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_BOOLEAN_FIELD, FieldFormat.BOOLEAN_FIELD, "Bool поле", true, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_BOOLEAN_FIELD, FieldFormat.BOOLEAN_FIELD, StaticDataTableHelper.DESTRIPTION_BOOLEAN_FIELD, StaticDataTableHelper.DEFAULT_BOOL, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_LONG_FIELD, FieldFormat.LONG_FIELD, "Long поле", 0, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_LONG_FIELD, FieldFormat.LONG_FIELD, StaticDataTableHelper.DESTRIPTION_LONG_FIELD, StaticDataTableHelper.DEFAULT_NUMB, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_FLOAT_FIELD, FieldFormat.FLOAT_FIELD, "Float поле", 0, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_FLOAT_FIELD, FieldFormat.FLOAT_FIELD, StaticDataTableHelper.DESTRIPTION_FLOAT_FIELD, StaticDataTableHelper.DEFAULT_NUMB, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DOUBLE_FIELD, FieldFormat.DOUBLE_FIELD, "Double поле", 0, true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_DOUBLE_FIELD, FieldFormat.DOUBLE_FIELD, StaticDataTableHelper.DESTRIPTION_DOUBLE_FIELD, StaticDataTableHelper.DEFAULT_NUMB, true);
     tf.addField(ff);
 
     DataTable table = new SimpleDataTable(tf);
@@ -71,11 +71,11 @@ public class StaticDataTable
   
   public static DataTable getBigTable()
   {
-    TableFormat tf = new TableFormat(1,51);
-    FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_INTEGER_TEST, FieldFormat.INTEGER_FIELD, "Integer поле", 10, true);
+    TableFormat tf = new TableFormat(50,50);
+    FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_INTEGER_TEST, FieldFormat.INTEGER_FIELD, StaticDataTableHelper.DESTRIPTION_INTEGER_FIELD, 10, true);
     tf.addField(ff);
 
-    ff = FieldFormat.create(StaticDataTableHelper.FIELD_STRING_TEST, FieldFormat.STRING_FIELD, "String поле", "10", true);
+    ff = FieldFormat.create(StaticDataTableHelper.FIELD_STRING_TEST, FieldFormat.STRING_FIELD, StaticDataTableHelper.DESTRIPTION_STRING_FIELD, "10", true);
     tf.addField(ff);
 
     DataTable table = new SimpleDataTable(tf);
