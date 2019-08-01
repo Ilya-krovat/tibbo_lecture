@@ -96,3 +96,4 @@ public class StaticDataTable
     return table;
   }
 }
+
