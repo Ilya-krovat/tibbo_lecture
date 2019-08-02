@@ -40,7 +40,7 @@ public class StaticDataTable
 
   public static DataTable getInnerTable()
   {
-    TableFormat tf = new TableFormat(5,5);
+    TableFormat tf = new TableFormat();
     FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_DATATABLE_FIELD, FieldFormat.DATATABLE_FIELD, StaticDataTableHelper.DESTRIPTION_DATATABLE_FIELD,getSimpleTable(), true);
     tf.addField(ff);
 
@@ -71,7 +71,7 @@ public class StaticDataTable
   
   public static DataTable getBigTable()
   {
-    TableFormat tf = new TableFormat(50,50);
+    TableFormat tf = new TableFormat();
     FieldFormat ff = FieldFormat.create(StaticDataTableHelper.FIELD_INTEGER_TEST, FieldFormat.INTEGER_FIELD, StaticDataTableHelper.DESTRIPTION_INTEGER_FIELD, 10, true);
     tf.addField(ff);
 
@@ -96,4 +96,5 @@ public class StaticDataTable
     return table;
   }
 }
-
+//рос сервис
+//
