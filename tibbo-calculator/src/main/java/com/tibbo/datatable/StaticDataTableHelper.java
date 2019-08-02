@@ -18,8 +18,9 @@ public class StaticDataTableHelper
   public static String DESTRIPTION_DOUBLE_FIELD = "Double поле";
   public static String DESTRIPTION_STRING_FIELD = "String поле";
   public static String DESTRIPTION_DATE_FIELD = "Date поле";
-  public static String DESTRIPTION_DATATABLE_FIELD ="DataTble поле";
+  public static String DESTRIPTION_DATATABLE_FIELD ="DataTable поле";
 
   public static Integer DEFAULT_NUMB = 0;
   public static Boolean DEFAULT_BOOL = true;
+  public static String DEFAULT_STRING = "String";
 }
