@@ -96,5 +96,3 @@ public class StaticDataTable
     return table;
   }
 }
-//рос сервис
-//
