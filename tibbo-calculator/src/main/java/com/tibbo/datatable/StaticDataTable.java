@@ -95,4 +95,16 @@ public class StaticDataTable
     }
     return table;
   }
+
+  public static TableFormat getTableFormat()
+  {
+    TableFormat tf = new TableFormat();
+    FieldFormat ff = FieldFormat.create("First Table", FieldFormat.DATATABLE_FIELD, StaticDataTableHelper.DESTRIPTION_INTEGER_FIELD, getSimpleTable(), true);
+    tf.addField(ff);
+     ff = FieldFormat.create("Second Table", FieldFormat.DATATABLE_FIELD, StaticDataTableHelper.DESTRIPTION_INTEGER_FIELD, getInnerTable(), true);
+    tf.addField(ff);
+     ff = FieldFormat.create("Third Table", FieldFormat.DATATABLE_FIELD, StaticDataTableHelper.DESTRIPTION_INTEGER_FIELD, getBigTable(), true);
+    tf.addField(ff);
+    return tf;
+  }
 }
